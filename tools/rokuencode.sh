@@ -51,7 +51,7 @@ mythcommflag --file $newname --rebuild
 
 biftool=$(which biftool)
 ffmpeg=$(which ffmpeg)
-if [ -f $biftool ] && [ -f $ffmpeg ]; then
+if [ "x$biftool" != "x" ] && [ "x$ffmpeg" != "x" ]; then
   # create bif trick files
   bifbname=`echo $MPGFILE | sed 's/\(.*\)\..*/\1/'`
   sdbifname="/var/tmp/${bifbname}_sd"
