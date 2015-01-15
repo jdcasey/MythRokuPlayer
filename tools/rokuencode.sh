@@ -14,7 +14,6 @@ set -x
 renice +15 --pid $$
 
 #convert mpeg file to mp4 using handbrakecli
-MYTHDIR=$1
 MPGFILE=$2
 
 TOOLS=$(dirname $0)
@@ -25,6 +24,8 @@ if [ ! -f $TOOLS/rokuencode-settings ]; then
 fi
 
 source $TOOLS/rokuencode-settings
+
+MYTHDIR=$(echo "select b.dirname from recorded as a, storagegroup as b where a.storagegroup=b.groupname and a.basename='1011_20150114163000.mp4';" | mysql --user=$DATABASEUSER --password=$DATABASEPASSWORD mythconverg)
 
 if [ -f /usr/bin/ccextractor ]; then
   # extract subtitles
