@@ -25,7 +25,7 @@ fi
 
 source $TOOLS/rokuencode-settings
 
-MYTHDIR=$(echo "select b.dirname from recorded as a, storagegroup as b where a.storagegroup=b.groupname and a.basename='1011_20150114163000.mp4';" | mysql --skip-column-names --user=$DATABASEUSER --password=$DATABASEPASSWORD mythconverg)
+MYTHDIR=$(echo "select b.dirname from recorded as a, storagegroup as b where a.storagegroup=b.groupname and a.basename='$MPGFILE';" | mysql --skip-column-names --user=$DATABASEUSER --password=$DATABASEPASSWORD mythconverg)
 
 if [ -f /usr/bin/ccextractor ]; then
   # extract subtitles
